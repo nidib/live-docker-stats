@@ -16,7 +16,6 @@ jobs:
               with:
                   build-args: |
                       COMMIT_HASH=${{ github.sha }}
-                  workdir: ./backend
                   registry: registry.hub.docker.com
                   organization: nidib
                   repository: live-docker-stats
