@@ -21,6 +21,12 @@ export class DockerStatsStreamController {
 
 		const stats = process.spawn('docker', ['stats', '--format', '{{ json . }}']);
 
+		res.writeHead(200, {
+			'Content-Type': 'text/event-stream',
+			'Cache-Control': 'no-cache',
+			Connection: 'keep-alive',
+		});
+
 		stats.stdout.on('data', (data: Buffer) => {
 			const stringifiedData = handleDockerStatsStreamOutput(data);
 
