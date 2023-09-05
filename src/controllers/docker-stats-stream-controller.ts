@@ -30,8 +30,6 @@ export class DockerStatsStreamController {
 
 			const streamData = getStreamDataOutput(stringifiedData);
 
-			console.log(streamData);
-
 			res.write(streamData);
 		});
 
